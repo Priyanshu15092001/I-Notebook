@@ -13,8 +13,7 @@ const NoteState = (props) => {
 
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNhYzM1ZmY0ZTA2N2I5Y2QxNGUyMzBlIn0sImlhdCI6MTY3MjQwMzUyM30.vNHRzn_hfq9CXFazMdmGKfwefWjWnwibyG8RGWRMo1g",
+        "auth-token": localStorage.getItem("token"),
       },
     });
     const json = await response.json();
@@ -29,15 +28,11 @@ const NoteState = (props) => {
 
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNhYzM1ZmY0ZTA2N2I5Y2QxNGUyMzBlIn0sImlhdCI6MTY3MjQwMzUyM30.vNHRzn_hfq9CXFazMdmGKfwefWjWnwibyG8RGWRMo1g",
+        "auth-token": localStorage.getItem("token"),
       },
       body: JSON.stringify({ title, description, tag }),
     });
-    const note =await response.json();
-    
-
-  
+    const note = await response.json();
 
     setnotes(notes.concat(note));
   };
@@ -49,8 +44,7 @@ const NoteState = (props) => {
 
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNhYzM1ZmY0ZTA2N2I5Y2QxNGUyMzBlIn0sImlhdCI6MTY3MjQwMzUyM30.vNHRzn_hfq9CXFazMdmGKfwefWjWnwibyG8RGWRMo1g",
+        "auth-token": localStorage.getItem("token"),
       },
     });
     const json = response.json();
@@ -70,16 +64,14 @@ const NoteState = (props) => {
 
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjNhYzM1ZmY0ZTA2N2I5Y2QxNGUyMzBlIn0sImlhdCI6MTY3MjQwMzUyM30.vNHRzn_hfq9CXFazMdmGKfwefWjWnwibyG8RGWRMo1g",
+        "auth-token": localStorage.getItem("token"),
       },
       body: JSON.stringify({ title, description, tag }),
     });
     const json = response.json();
     console.log(json);
 
-
-    let newNotes=JSON.parse(JSON.stringify(notes))
+    let newNotes = JSON.parse(JSON.stringify(notes));
     for (let index = 0; index < notes.length; index++) {
       const element = notes[index];
       if (element._id === id) {
